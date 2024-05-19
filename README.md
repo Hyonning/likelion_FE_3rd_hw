@@ -95,3 +95,4 @@ python manage.py runserver
 |<img src="https://ifh.cc/g/jAXs2V.jpg" width="100" height="100" />| **심서현!**|
 
 
+효은 과제

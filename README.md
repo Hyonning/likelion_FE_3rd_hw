@@ -93,6 +93,3 @@ python manage.py runserver
 |<img src="https://github.com/LikeLion-at-DGU/12th_Front_market_kurly/assets/117021241/7d4ffaf8-aa5c-4194-b7a3-edcf3e626119" width="100" height="100" />|멋쟁이 사자처럼 12기 부회장 백엔드의 신 **이상준!**|
 |<img src="https://ifh.cc/g/XQWbNl.jpg" width="100" height="100" />|멋쟁이 사자처럼 12기 프론트엔드의 권위자 **설현아!**|
 |<img src="https://ifh.cc/g/jAXs2V.jpg" width="100" height="100" />| **심서현!**|
-
-
-효은 과제

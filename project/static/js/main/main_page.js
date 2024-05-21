@@ -2,20 +2,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkBoxes = document.querySelectorAll("input[name='check']");
     const categoryFilter = document.querySelector('.categoryfilter');
     const resetButton = document.querySelector('.reset');
-    const totalCountElement = document.querySelector('.sortingbar i'); // 총합이 표시되는 요소 선택
+    const totalCountElement = document.querySelector('.sortingbar i');
 
-    const updateTotalCount = () => {
-        let totalCount = 0;
-        checkBoxes.forEach(checkBox => {
-            if (checkBox.checked) {
+    function updateTotalCount() {
+        const total = Array.from(checkBoxes)
+            .filter(checkBox => checkBox.checked)
+            .reduce((sum, checkBox) => {
                 const numberElement = checkBox.nextElementSibling.nextElementSibling;
-                if (numberElement && numberElement.classList.contains('number')) {
-                    totalCount += parseInt(numberElement.textContent, 10);
-                }
-            }
-        });
-        totalCountElement.textContent = '총 ' + totalCount + '건'; // 총합을 업데이트합니다.
-    };
+                return sum + (numberElement ? parseInt(numberElement.textContent, 10) : 0);
+            }, 0);
+
+        totalCountElement.textContent = `총 ${total}건`;
+        toggleResetButton();
+    }
+
+    function toggleResetButton() {
+        const anyChecked = Array.from(checkBoxes).some(checkBox => checkBox.checked);
+        if (anyChecked) {
+            resetButton.classList.add('active');
+        } else {
+            resetButton.classList.remove('active');
+        }
+    }
 
     checkBoxes.forEach((checkBox) => {
         checkBox.addEventListener("change", (event) => {
@@ -46,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     categoryFilter.removeChild(itemToRemove);
                 }
             }
+
             updateTotalCount();
         });
     });
@@ -66,10 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
         newEl.id = `category_${checkBox.id}`;
         newEl.innerHTML = `
             ${checkBox.value}
-            <svg class="remove" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: flex; width: 20px; height: 20px; justify-content: center; align-items: center;">
+            <svg class="remove" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="Vector" d="M15 15L5 5M5 15L15 5" stroke="#DDDDDD" stroke-width="2"/>
             </svg>
-
         `;
 
         categoryFilter.appendChild(newEl);
@@ -80,6 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTotalCount();
         });
     });
+
+    updateTotalCount();
 
     // 초기화 버튼 클릭 시 처리
     resetButton.addEventListener('click', function() {
@@ -93,10 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
             checkBox.checked = false;
         });
 
-        // 총합 갱신
         updateTotalCount();
     });
-
-    // 초기 총합 계산
-    updateTotalCount();
 });

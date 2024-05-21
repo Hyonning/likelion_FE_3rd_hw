@@ -133,24 +133,6 @@
     
 }
 
-.reset.active {
-    color: var(--font-font2, #999);
-    font-family: Pretendard;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 133.333% */
-    display: flex;
-    align-items: center;
-}
-
-.reset.active svg {
-    fill: var(--font-font2, #999);
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-}
-
 
 
 .cate{

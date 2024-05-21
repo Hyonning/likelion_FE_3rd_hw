@@ -1,15 +1,14 @@
 /* main page - CSS */
 
-    .container{
-        display: flex;
-        padding-bottom: 100px;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background: var(--background-background, #FFF);
-        height: 100%;
-        
-    }
+.container{
+    display: flex;
+    padding-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: var(--background-background, #FFF);
+    height: 100%;
+}
 
 .tag{
     display: flex;
@@ -260,6 +259,8 @@
     font-weight: 500;
     line-height: 20px; /* 133.333% */
 }
+
+
 
 
 .itemlist{

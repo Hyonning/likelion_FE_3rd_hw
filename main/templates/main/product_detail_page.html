@@ -4,20 +4,151 @@
   type="text/css"
   href="{% static 'css/main/product_detail_page.css'%}"
 />
+<div class="screen">
+  <div class="product-detail-page">
+    <!-- 상품 정보 -->
+    <section class="product-detail">
+      <img class="product-image" src="{{product.image_url}}" />
+      <!-- 상단정보 -->
+      <seciton
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        "
+      >
+        <div class="product-detail-top">
+          <div class="H3 text-font2" style="padding-bottom: 0.5rem">
+            셋별배송
+          </div>
+          <p class="H1 text-font1">{{product.name}}</p>
 
-<!-- 코드 작성시, 아래 부분(endblock 이전)은 전체 삭제하고 작성하세요 -->
+          <section class="product-detail-price">
+            <div class="H2 point-red">{{product.discount_rate}}%</div>
+            <div class="H2 text-font1">{{product.discount_price}} 원</div>
+          </section>
 
-<!----------------tip!---------------->
-<!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
-<!-- 아래와 같은 형식으로 사용하세요 -->
+          <img class="line" />
 
-<!-- 데이터 사용 예시 -->
-<img src="{{product.image_url}}" style="width: 100px" />
-<p>{{product.name}}</p>
-<p>{{product.discount_rate}}%</p>
-<p>{{product.discount_price}} 원</p>
-<p>{{product.notice}}</p>
-<!-- 데이터 사용 예시 -->
+          <section class="product-detail-section">
+            <div class="B2-bold text-font2" style="width: 5rem">안내 사항</div>
+            <p class="B2 text-font1">{{product.notice}}</p>
+          </section>
 
-<script src="{% static 'js/main/product_detail_page.js'%}"></script>
+          <img class="line" />
+
+          <section class="product-detail-section">
+            <div class="B2-bold text-font2" style="width: 5rem">상품 선택</div>
+
+            <div class="product-detail-section-box">
+              <p class="B2 text-font1">{{product.name}}</p>
+
+              <!-- 플러스 마이너스 버튼 -->
+              <span class="product-detail-section-count" style="width: 80px">
+                <div class="B2-bold" style="width: 1.25rem; text-align: center">
+                  -
+                </div>
+                <div class="B2-bold" style="width: 2rem; text-align: center">
+                  2
+                </div>
+                <div class="B2-bold" style="width: 1.25rem; text-align: center">
+                  +
+                </div>
+              </span>
+            </div>
+          </section>
+          <img class="line" />
+        </div>
+        <!-- 상단 정보 -->
+
+        <!-- 하단 정보 -->
+        <div class="product-detail-bottom">
+          <div class="product-detail-price">
+            <div class="B2">총 상품 금액 :</div>
+            <div class="H2">158,000 원</div>
+          </div>
+
+          <button class="product-detail-button Btn">구매하기</button>
+        </div>
+      </seciton>
+      <!-- 하단 정보 -->
+    </section>
+    <!-- 상품 정보 -->
+
+    <div class="product-comment">
+      <div class="H1 text-font1" style="padding-bottom: 1.875rem">상품후기</div>
+         <!-- 폼작성 부분 -->
+         <form action = "create_comment/" method = "POST" class="form-example">
+          {% csrf_token %}
+         <!-- 폼작성 부분 -->
+         <select name = "star" id="star">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+         </select>
+         <div class = "flex">
+         <input type="textarea" name="content" id="content" required />
+         <!-- 폼작성 부분 -->
+         <button
+            class="product-comment-submit Btn"
+            name="submit"
+            type="submit"
+            id="submit"
+          >
+            등록
+          </button>
+         <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const textarea = document.getElementById("content");
+            const submitButton = document.getElementById("submit");
+        
+            textarea.addEventListener("input", (event) => {
+              if (textarea.value.trim().length > 0) {
+                submitButton.disabled = false;
+                submitButton.style.backgroundColor = "#5e0080";
+              } else {
+                submitButton.disabled = true;
+                submitButton.style.backgroundColor = "#dddddd";
+              }
+            });
+          });
+        </script>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="screen">
+  <div
+    style="
+      width: 1050px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0px;
+    "
+  >
+    {% for comment in comments %}
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 8px;
+        border-bottom: solid 1px #d9d9d9;
+      "
+    >
+      <div style="display: flex; justify-content: space-between">
+        <p>평점:{{comment.star}}</p>
+        <a href="{% url 'main:delete_comment' comment.id %}">삭제</a>
+      </div>
+      <p class="B1">{{comment.content}}</p>
+    </div>
+    {% endfor%}
+  </div>
+</div>
 {% endblock %}
+
+<input type="text" name="content" />
+<input type="submit" value="submit" />

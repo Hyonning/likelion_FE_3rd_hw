@@ -1,1 +1,270 @@
 /* signup page - CSS */
+.container {
+    display: flex;
+    padding-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: var(--background-background, #FFF);
+    height: 100%;
+    width: 1050px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    @media (max-width: 1050px) {
+        align-items: start;
+    }
+    @media (min-width: 1051px) {
+        align-items: center;
+    }
+}
+
+.body {
+    display: flex;
+    padding-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.signuptext {
+    color: #000;
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 114.286% */
+    letter-spacing: -1px;
+}
+
+.br {
+    width: 640px;
+    height: 1px;
+    background: #000;
+}
+
+.inputlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+.idinput {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.id {
+    display: flex;
+    width: 150px;
+    height: 46px;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+
+    /* B2-bold */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -1px;
+}
+
+.textholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+.textholder2 {
+    display: flex;
+    height: 46px;
+    padding: 0px 1px 0px 11px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 4px;
+    border: 1px solid var(--stroke-stroke-1, #CCC);
+}
+
+.id2 {
+    color: var(--font-font2, #999);
+    text-align: left;
+    
+    /* B2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -1px;
+}
+
+.pwinput {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.pw {
+    display: flex;
+    width: 150px;
+    height: 46px;
+    flex-direction: column;
+    justify-content: center;
+
+    color: #000;
+
+    /* B2-bold */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -1px;
+}
+
+.textholder3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+.textholder4 {
+    display: flex;
+    height: 46px;
+    padding: 0px 1px 0px 11px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 4px;
+    border: 1px solid var(--stroke-stroke-1, #CCC);
+}
+
+.pw2 {
+    color: var(--font-font2, #999);
+    text-align: left;
+    
+    /* B2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -1px;
+}
+
+#pw3 {
+    color: #999;
+    text-align: left;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    margin-top: 4px;
+}
+
+.pwcheckinput {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.pwcheck {
+    display: flex;
+    width: 150px;
+    height: 46px;
+    flex-direction: column;
+    justify-content: center;
+
+    color: #000;
+
+    /* B2-bold */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -1px;
+}
+
+.pwcheck2 {
+    color: var(--font-font2, #999);
+    text-align: left;
+    
+    /* B2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -1px;
+}
+
+.br2 {
+    width: 640px;
+    height: 1px;
+    background: #000;
+    margin-top: 20px;
+}
+
+.signupbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 46px;
+    margin-top: 20px;
+}
+
+.signupclick {
+    width: 200px;
+    height: 46px;
+    background-color: #E2E2E2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+
+.signupbutton.enabled .signupclick {
+    cursor: pointer;
+    background-color: #5E0080;
+}
+
+.signupbutton.enabled .signupclick:disabled {
+    cursor: not-allowed;
+    background-color: #999;
+}

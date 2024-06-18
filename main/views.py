@@ -31,3 +31,15 @@ def delete_comment(request, comment_id):
         return render(request, 'main/product_detail_page.html', {'product': product, 'comments': comments, 'error': '본인의 댓글만 삭제할 수 있습니다.'})
     comment.delete()
     return redirect('main:product_detail', product.id)
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('main_page')  # 로그인 성공 시 메인 페이지로 리디렉션
+        else:
+            return render(request, 'login.html', {'error': '아이디 또는 비밀번호가 올바르지 않습니다.'})
+    return render(request, 'login.html')
